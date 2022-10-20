@@ -2,7 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 #from .US_standard_atmosphere_1976 import US_standard_atmosphere_1976
-import US_standard_atmosphere_1976 as US
+from profiles import US_standard_atmosphere_1976
 
 
 # start by defining the LIDAR pulse parameters
@@ -36,7 +36,7 @@ tmax = 2*hmax/c # (s) the maximum time we need to record our measurements until
 h = np.arange(dr,hmax,dr) # all the possible altitudes at which we'll calculate a density.
 t = np.arange(dt,tmax+PULSE_duration,dt)
 
-T,p,rho = US.US_standard_atmosphere_1976(h,k='quadratic')
+T,p,rho = US_standard_atmosphere_1976(h,k='quadratic')
 
 '''
 The derivation of transmission is
